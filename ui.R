@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(xts)
 library(dygraphs)
 source('global.R')
 

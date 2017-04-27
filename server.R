@@ -10,6 +10,7 @@
 library(shiny)
 library(reshape2)
 library(ggplot2)
+library(xts)
 library(dygraphs)
 source('global.R')
 # Define server logic required to draw a histogram
