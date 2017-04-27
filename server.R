@@ -67,22 +67,22 @@ shinyServer(function(input, output) {
     #    geom_point(data = xymelt(),aes(x = date, y = value, color=variable))
     #})
     # # dygraph plots
-       # output$dygraph <- renderDygraph({
-       #   if(!input$go){
-       #     return
-       #   }
-       #   selectedVars <- isolate(input$selectVar2PlotID)
-       #   tryCatch(
-       #   dygraph(rv$dataxts,main = 'Interactive Time Series Viz') %>%
-       #     dyRangeSelector() %>% 
-       #     dyRoller(rollPeriod=1) %>%
-       #     dyHighlight(highlightSeriesOpts = list(strokeWidth = 3),
-       #                 highlightCircleSize = 5,
-       #                 highlightSeriesBackgroundAlpha = 0.5,
-       #                 hideOnMouseOut = FALSE)
-       #   )
-       #     }) 
-       #   
+        output$dygraph <- renderDygraph({
+          if(!input$go){
+            return
+          }
+          selectedVars <- isolate(input$selectVar2PlotID)
+          tryCatch(
+          dygraph(rv$dataxts,main = 'Interactive Time Series Viz') %>%
+            dyRangeSelector() %>% 
+            dyRoller(rollPeriod=1) %>%
+            dyHighlight(highlightSeriesOpts = list(strokeWidth = 3),
+                        highlightCircleSize = 5,
+                        highlightSeriesBackgroundAlpha = 0.5,
+                        hideOnMouseOut = FALSE)
+          )
+            }) 
+          
    
    output$table <- renderDataTable(rv$data)
    output$lookupTable <- renderDataTable(lookupData)
